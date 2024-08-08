@@ -177,7 +177,8 @@ class SettingsLayout(QWidget):
         labels = {"instances": self.parent().get_labels(), "tags": tags}
         with open(labels_path, "w") as f:
             json.dump(labels, f, indent=4)
-        masks = cv2.resize(masks, self.actual_shape, interpolation=cv2.INTER_LINEAR)
+        masks = cv2.resize(masks, self.actual_shape, interpolation=cv2.INTER_NEAREST_EXACT)
+        # changed from interpolation=cv2.INTER_LINEAR
         cv2.imwrite(mask_path, masks)
 
     def on_checkpoint_path_changed(self):

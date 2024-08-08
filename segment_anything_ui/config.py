@@ -53,7 +53,7 @@ class KeyBindings:
 
 @dataclasses.dataclass
 class Config:
-    default_weights: str = "xl0.pt"
+    default_weights: str = "sam_vit_b_01ec64.pth"
     download_weights_if_not_available: bool = True
     label_file: str = "labels.json"
     window_size: tuple[int, int] | int = (1920, 1080)
